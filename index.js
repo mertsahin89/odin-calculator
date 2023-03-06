@@ -12,6 +12,10 @@ let plusButton = document.querySelector(".plus");
 
 let minusButton = document.querySelector(".minus");
 
+let multiplyButton = document.querySelector(".multiply");
+
+let divideButton = document.querySelector(".divide");
+
 let equalButton = document.querySelector(".equal");
 
 let clearButton = document.querySelector(".clear");
@@ -53,18 +57,33 @@ for (let index = 0; index < numberButtons.length; index++) {
   });
 }
 
-
 plusButton.addEventListener("click", function (params) {
   switch (slicerCharacter) {
     case "-":
-        num2 = parseInt(
-            displayValue.slice(displayValue.indexOf(slicerCharacter) + 1)
-          );
-          resultScreen.innerText = operator(num1, num2, operatorFunction);
-          num1 = parseInt(resultScreen.innerText);
-          num2 = null;
-          break;
+      num2 = parseInt(
+        displayValue.slice(displayValue.indexOf(slicerCharacter) + 1)
+      );
+      resultScreen.innerText = operator(num1, num2, operatorFunction);
+      num1 = parseInt(resultScreen.innerText);
+      num2 = null;
       break;
+
+    case "/":
+      num2 = parseInt(
+        displayValue.slice(displayValue.indexOf(slicerCharacter) + 1)
+      );
+      resultScreen.innerText = operator(num1, num2, operatorFunction);
+      num1 = parseInt(resultScreen.innerText);
+      num2 = null;
+
+      case "*":
+        num2 = parseInt(
+          displayValue.slice(displayValue.indexOf(slicerCharacter) + 1)
+        );
+        resultScreen.innerText = operator(num1, num2, operatorFunction);
+        num1 = parseInt(resultScreen.innerText);
+        num2 = null;
+        break;
 
     default:
       break;
@@ -84,18 +103,16 @@ plusButton.addEventListener("click", function (params) {
       );
       resultScreen.innerText = operator(num1, num2, operatorFunction);
       num1 = parseInt(resultScreen.innerText);
-      
+
       displayValue = num1 + slicerCharacter;
       displayScreen.innerText = displayValue;
     }
-  } else if (num1 === true && num2 === false){
+  } else if (num1 === true && num2 === false) {
     console.log("aa");
-  }else {
+  } else {
     num1 = parseInt(displayValue.replace(slicerCharacter, ""));
   }
 });
-
-
 
 minusButton.addEventListener("click", function (params) {
   switch (slicerCharacter) {
@@ -127,13 +144,95 @@ minusButton.addEventListener("click", function (params) {
       );
       resultScreen.innerText = operator(num1, num2, operatorFunction);
       num1 = parseInt(resultScreen.innerText);
-      
+
       displayValue = num1 + slicerCharacter;
       displayScreen.innerText = displayValue;
     }
-  } else if (num1 === true && num2 === false){
+  } else if (num1 === true && num2 === false) {
     console.log("aa");
-  }else {
+  } else {
+    num1 = parseInt(displayValue.replace(slicerCharacter, ""));
+  }
+});
+
+multiplyButton.addEventListener("click", function () {
+  switch (slicerCharacter) {
+    case "+":
+      num2 = parseInt(
+        displayValue.slice(displayValue.indexOf(slicerCharacter) + 1)
+      );
+      resultScreen.innerText = operator(num1, num2, operatorFunction);
+      num1 = parseInt(resultScreen.innerText);
+      num2 = null;
+      break;
+
+    default:
+      break;
+  }
+
+  operatorFunction = multiply;
+  slicerCharacter = "*";
+  if (num1 && num2 != true) {
+    if (num2 === null) {
+      resultScreen.innerText = operator(num1, num2, operatorFunction);
+      num1 = parseInt(resultScreen.innerText);
+      num2 = NaN;
+      displayValue = num1 + slicerCharacter;
+      displayScreen.innerText = displayValue;
+    } else {
+      num2 = parseInt(
+        displayValue.slice(displayValue.indexOf(slicerCharacter) + 1)
+      );
+      resultScreen.innerText = operator(num1, num2, operatorFunction);
+      num1 = parseInt(resultScreen.innerText);
+
+      displayValue = num1 + slicerCharacter;
+      displayScreen.innerText = displayValue;
+    }
+  } else if (num1 === true && num2 === false) {
+    console.log("aa");
+  } else {
+    num1 = parseInt(displayValue.replace(slicerCharacter, ""));
+  }
+});
+
+divideButton.addEventListener("click", function name(params) {
+  switch (slicerCharacter) {
+    case "+":
+      num2 = parseInt(
+        displayValue.slice(displayValue.indexOf(slicerCharacter) + 1)
+      );
+      resultScreen.innerText = operator(num1, num2, operatorFunction);
+      num1 = parseInt(resultScreen.innerText);
+      num2 = null;
+      break;
+
+    default:
+      break;
+  }
+
+  operatorFunction = divide;
+  slicerCharacter = "/";
+  if (num1 && num2 != true) {
+    if (num2 === null) {
+      resultScreen.innerText = operator(num1, num2, operatorFunction);
+      num1 = parseInt(resultScreen.innerText);
+      num2 = NaN;
+      displayValue = num1 + slicerCharacter;
+      displayScreen.innerText = displayValue;
+    } else {
+      num2 = parseInt(
+        displayValue.slice(displayValue.indexOf(slicerCharacter) + 1)
+      );
+      resultScreen.innerText = operator(num1, num2, operatorFunction);
+      num1 = parseInt(resultScreen.innerText);
+
+      displayValue = num1 + slicerCharacter;
+      displayScreen.innerText = displayValue;
+    }
+  } else if (num1 === true && num2 === false) {
+    console.log("aa");
+  } else {
     num1 = parseInt(displayValue.replace(slicerCharacter, ""));
   }
 });
@@ -155,3 +254,36 @@ clearButton.addEventListener("click", function (params) {
   displayScreen.innerText = "";
   resultScreen.innerText = "Cleared";
 });
+
+
+function operatorQueueHandler(slicerCharacter){
+  switch (slicerCharacter) {
+    case "-":
+      num2 = parseInt(
+        displayValue.slice(displayValue.indexOf(slicerCharacter) + 1)
+      );
+      resultScreen.innerText = operator(num1, num2, operatorFunction);
+      num1 = parseInt(resultScreen.innerText);
+      num2 = null;
+      break;
+
+    case "/":
+      num2 = parseInt(
+        displayValue.slice(displayValue.indexOf(slicerCharacter) + 1)
+      );
+      resultScreen.innerText = operator(num1, num2, operatorFunction);
+      num1 = parseInt(resultScreen.innerText);
+      num2 = null;
+
+    case "*":
+      num2 = parseInt(
+        displayValue.slice(displayValue.indexOf(slicerCharacter) + 1)
+      );
+      resultScreen.innerText = operator(num1, num2, operatorFunction);
+      num1 = parseInt(resultScreen.innerText);
+      num2 = null;
+
+    default:
+      break;
+  }
+}
