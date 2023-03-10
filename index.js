@@ -75,15 +75,16 @@ plusButton.addEventListener("click", function (params) {
       resultScreen.innerText = operator(num1, num2, operatorFunction);
       num1 = parseInt(resultScreen.innerText);
       num2 = null;
+      break;
 
-      case "*":
-        num2 = parseInt(
-          displayValue.slice(displayValue.indexOf(slicerCharacter) + 1)
-        );
-        resultScreen.innerText = operator(num1, num2, operatorFunction);
-        num1 = parseInt(resultScreen.innerText);
-        num2 = null;
-        break;
+    case "*":
+      num2 = parseInt(
+        displayValue.slice(displayValue.indexOf(slicerCharacter) + 1)
+      );
+      resultScreen.innerText = operator(num1, num2, operatorFunction);
+      num1 = parseInt(resultScreen.innerText);
+      num2 = null;
+      break;
 
     default:
       break;
@@ -125,6 +126,24 @@ minusButton.addEventListener("click", function (params) {
       num2 = null;
       break;
 
+    case "/":
+      num2 = parseInt(
+        displayValue.slice(displayValue.indexOf(slicerCharacter) + 1)
+      );
+      resultScreen.innerText = operator(num1, num2, operatorFunction);
+      num1 = parseInt(resultScreen.innerText);
+      num2 = null;
+      break;
+
+    case "*":
+      num2 = parseInt(
+        displayValue.slice(displayValue.indexOf(slicerCharacter) + 1)
+      );
+      resultScreen.innerText = operator(num1, num2, operatorFunction);
+      num1 = parseInt(resultScreen.innerText);
+      num2 = null;
+      break;
+
     default:
       break;
   }
@@ -157,6 +176,24 @@ minusButton.addEventListener("click", function (params) {
 
 multiplyButton.addEventListener("click", function () {
   switch (slicerCharacter) {
+    case "-":
+      num2 = parseInt(
+        displayValue.slice(displayValue.indexOf(slicerCharacter) + 1)
+      );
+      resultScreen.innerText = operator(num1, num2, operatorFunction);
+      num1 = parseInt(resultScreen.innerText);
+      num2 = null;
+      break;
+
+    case "/":
+      num2 = parseInt(
+        displayValue.slice(displayValue.indexOf(slicerCharacter) + 1)
+      );
+      resultScreen.innerText = operator(num1, num2, operatorFunction);
+      num1 = parseInt(resultScreen.innerText);
+      num2 = null;
+      break;
+
     case "+":
       num2 = parseInt(
         displayValue.slice(displayValue.indexOf(slicerCharacter) + 1)
@@ -174,7 +211,7 @@ multiplyButton.addEventListener("click", function () {
   slicerCharacter = "*";
   if (num1 && num2 != true) {
     if (num2 === null) {
-      resultScreen.innerText = operator(num1, num2, operatorFunction);
+     
       num1 = parseInt(resultScreen.innerText);
       num2 = NaN;
       displayValue = num1 + slicerCharacter;
@@ -198,7 +235,25 @@ multiplyButton.addEventListener("click", function () {
 
 divideButton.addEventListener("click", function name(params) {
   switch (slicerCharacter) {
+    case "-":
+      num2 = parseInt(
+        displayValue.slice(displayValue.indexOf(slicerCharacter) + 1)
+      );
+      resultScreen.innerText = operator(num1, num2, operatorFunction);
+      num1 = parseInt(resultScreen.innerText);
+      num2 = null;
+      break;
+
     case "+":
+      num2 = parseInt(
+        displayValue.slice(displayValue.indexOf(slicerCharacter) + 1)
+      );
+      resultScreen.innerText = operator(num1, num2, operatorFunction);
+      num1 = parseInt(resultScreen.innerText);
+      num2 = null;
+      break;
+
+    case "*":
       num2 = parseInt(
         displayValue.slice(displayValue.indexOf(slicerCharacter) + 1)
       );
@@ -215,7 +270,7 @@ divideButton.addEventListener("click", function name(params) {
   slicerCharacter = "/";
   if (num1 && num2 != true) {
     if (num2 === null) {
-      resultScreen.innerText = operator(num1, num2, operatorFunction);
+      
       num1 = parseInt(resultScreen.innerText);
       num2 = NaN;
       displayValue = num1 + slicerCharacter;
@@ -243,6 +298,7 @@ equalButton.addEventListener("click", function (params) {
   );
   resultScreen.innerText = operator(num1, num2, operatorFunction);
   displayScreen.innerText = resultScreen.innerText;
+  num2 = "";
 });
 
 function equal() {}
@@ -255,7 +311,7 @@ clearButton.addEventListener("click", function (params) {
   resultScreen.innerText = "Cleared";
 });
 
-
+/*
 function operatorQueueHandler(slicerCharacter){
   switch (slicerCharacter) {
     case "-":
@@ -286,4 +342,4 @@ function operatorQueueHandler(slicerCharacter){
     default:
       break;
   }
-}
+} */
