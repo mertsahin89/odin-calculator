@@ -73,6 +73,17 @@ function operatorButtonToggle(pressedButton, op1, op2, op3, op4, noneOrAutoStrin
   op4.style.pointerEvents = noneOrAutoString;
 }
 
+function reactivateButtons() {
+  let pressedItems = document.querySelectorAll(".pressed");
+      let buttonItems = [plusButton, minusButton, multiplyButton, divideButton, equalButton];
+      pressedItems.forEach(element => {
+        element.classList.remove("pressed");
+      });
+      
+      buttonItems.forEach(element => {
+        element.style.pointerEvents = "auto"
+      });
+}
 
 for (let index = 0; index < numberButtons.length; index++) {
   numberButtons[index].addEventListener("mousedown", function () {
@@ -83,15 +94,7 @@ for (let index = 0; index < numberButtons.length; index++) {
     console.log(checkLastChar);
 
     if (checkLastChar !== "+" || checkLastChar !== "-" || checkLastChar !== "*" || checkLastChar !== "/") {
-      let pressedItems = document.querySelectorAll(".pressed");
-      let buttonItems = [plusButton, minusButton, multiplyButton, divideButton, equalButton];
-      pressedItems.forEach(element => {
-        element.classList.remove("pressed");
-      });
-      
-      buttonItems.forEach(element => {
-        element.style.pointerEvents = "auto"
-      });
+     reactivateButtons();
     }
   });
 
@@ -370,6 +373,7 @@ clearButton.addEventListener("click", function (params) {
   displayValue = "";
   displayScreen.innerText = "";
   resultScreen.innerText = "Cleared";
+  reactivateButtons();
 });
 
 /*
