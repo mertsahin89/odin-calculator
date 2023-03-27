@@ -74,7 +74,7 @@ function operatorButtonToggle(pressedButton, op1, op2, op3, op4, noneOrAutoStrin
 }
 
 function reactivateButtons() {
-  let pressedItems = document.querySelectorAll("op.pressed");
+  let pressedItems = document.querySelectorAll(".op.pressed");
       let buttonItems = [plusButton, minusButton, multiplyButton, divideButton, equalButton];
       pressedItems.forEach(element => {
         element.classList.remove("pressed");
